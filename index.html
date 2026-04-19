@@ -77,6 +77,36 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4; /* ここを「3」にすると3行で自動的に「...」になります */
     overflow: hidden;
+
+      /* カードに浮き上がる動きを追加 */
+.entry-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 変化を滑らかにする */
+}
+
+.entry-card:hover {
+  transform: translateY(-5px); /* 5ピクセル上に浮かす */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* 影を濃くして浮遊感を出す */
+}
+
+/* 画像の上にバッジを置くための準備 */
+.thumb-container {
+  position: relative; /* バッジを「上に重ねる」ための基準点 */
+}
+
+/* 「NEW」バッジのデザイン */
+.badge-new {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ff0000;
+  color: white;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 5px 0 5px 0; /* 左上と右下だけ丸める */
+  z-index: 1;
+}
+
   }
 </style>
 
