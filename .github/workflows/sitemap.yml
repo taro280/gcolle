@@ -8,6 +8,10 @@ jobs:
   sitemap_job:
     runs-on: ubuntu-latest
     name: generate-sitemap
+    # 👇 ここから3行を追加して、ロボットに書き込み権限をハッキリ与える
+    permissions:
+      contents: write
+
     steps:
     - name: Checkout the repo
       uses: actions/checkout@v3
@@ -27,4 +31,5 @@ jobs:
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add sitemap.xml
         git commit -m "Automated sitemap update" || exit 0
-        git push
+        # 👇 ここを安全な書き方に変更（トークンを自動で使ってpushさせる）
+        git push origin main
